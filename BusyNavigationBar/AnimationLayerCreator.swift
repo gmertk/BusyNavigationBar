@@ -49,38 +49,40 @@ struct AnimationLayerCreator {
 
 
     /**
-        Creates a layer with bars animating as in a equalizer
+        Creates a layer with bars animating as in a equalizer. 
 
         :param: bounds     The bounds of navigation bar
 
         :returns: A new layer with bars animating
     */
     static func barAnimation(bounds: CGRect) -> CALayer {
-        let r = CAReplicatorLayer()
-        r.backgroundColor = UIColor.clearColor().CGColor
-        r.bounds = bounds
-        r.instanceCount = 40
-        r.instanceDelay = 0.1
-        r.masksToBounds = true
-        r.instanceTransform = CATransform3DMakeTranslation(20, 0, 0)
+        let barWidth: CGFloat = 15
+        let barHeight = bounds.height
+
+        let replicator = CAReplicatorLayer()
+
+        replicator.backgroundColor = UIColor.clearColor().CGColor
+        replicator.bounds = bounds
+        replicator.instanceCount = 40
+        replicator.masksToBounds = true
+        replicator.instanceTransform = CATransform3DMakeTranslation(barWidth * 2, 0, 0)
 
         let bar = CALayer()
-        bar.bounds = CGRect(x: 0, y: 0, width: 10, height: 40)
-        bar.backgroundColor = UIColor.redColor().CGColor
-        bar.cornerRadius = 2.0
-        bar.position = CGPoint(x: 10.0, y: 75.0)
-        r.addSublayer(bar)
-
+        bar.bounds = CGRect(x: 0, y: 0, width: barWidth, height: barHeight)
+        bar.backgroundColor = UIColor.grayColor().CGColor
+        bar.cornerRadius = 1.0
+        bar.position = CGPoint(x: barWidth/2, y: bounds.height)
+        replicator.addSublayer(bar)
 
         let animation = CABasicAnimation(keyPath: "position.y")
-        animation.toValue = bar.position.y - 35.0
+        animation.toValue = bounds.height / 2
         animation.duration = 0.5
         animation.autoreverses = true
         animation.repeatCount = Float.infinity
 
         bar.addAnimation(animation, forKey: nil)
-        
-        return r
+
+        return replicator
     }
 
     static func waveAnimation(bounds: CGRect) -> CALayer {

@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/cocoapods/l/BusyNavigationBar.svg?style=flat)](http://cocoapods.org/pods/BusyNavigationBar)
 [![Platform](https://img.shields.io/cocoapods/p/BusyNavigationBar.svg?style=flat)](http://cocoapods.org/pods/BusyNavigationBar)
 
-
+A navigation bar extension to show loading effects
 
 ## Screenshot
 
