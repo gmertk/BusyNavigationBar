@@ -40,17 +40,11 @@ class ViewController: UIViewController {
 
         self.navigationController?.navigationBar.start(options)
 
-        // alpha
-        // color
-        // animation speed
-        // give your animation layer
+        // give your animation layer // 4. swift bird animation
         // give your pattern image so I move it around
         // changing title with an animation
         // provide a static function, which finds the navigation bar in the viewcontroller.
 
-        // 2. bar animation
-        // 3. wave animation
-        // 4. swift bird animation
     }
 
     @IBAction func stopDidTap(sender: AnyObject) {

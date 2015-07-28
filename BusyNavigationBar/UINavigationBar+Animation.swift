@@ -54,7 +54,7 @@ extension UINavigationBar {
             loadingView.removeFromSuperview()
         }
 
-        self.busy_options = options ?? BusyNavigationBarOptions()
+        busy_options = options ?? BusyNavigationBarOptions()
 
         insertLoadingView()
 
@@ -63,6 +63,7 @@ extension UINavigationBar {
         })
 
         var animationLayer = pickAnimationLayer()
+        animationLayer.masksToBounds = true
         animationLayer.position = busy_loadingView!.center
         animationLayer.mask = maskLayer()
 
@@ -95,9 +96,9 @@ extension UINavigationBar {
 
         switch busy_options.animationType {
         case .Stripes:
-            animationLayer = AnimationLayerCreator.stripeAnimationLayer(bounds)
+            animationLayer = AnimationLayerCreator.stripeAnimationLayer(bounds, options: busy_options)
         case .Bars:
-            animationLayer = AnimationLayerCreator.barAnimation(bounds)
+            animationLayer = AnimationLayerCreator.barAnimation(bounds, options: busy_options)
         case .CustomLayer(let yourLayer):
             animationLayer = yourLayer
         }
@@ -108,7 +109,7 @@ extension UINavigationBar {
     private func maskLayer() -> CALayer {
         var alphaLayer = CAGradientLayer()
         alphaLayer.frame = bounds
-        alphaLayer.colors = [UIColor(red: 0, green: 0, blue: 0, alpha: 0).CGColor, UIColor(red: 0, green: 0, blue: 0, alpha: 0.3).CGColor]
+        alphaLayer.colors = [UIColor(red: 0, green: 0, blue: 0, alpha: 0).CGColor, UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).CGColor]
         return alphaLayer
     }
 }

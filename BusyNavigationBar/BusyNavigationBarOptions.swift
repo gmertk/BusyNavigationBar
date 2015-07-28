@@ -11,10 +11,9 @@ import UIKit
 /**
     Animation type
 
-    - Bars: For streets or trails.
-    - Stripes: For long journeys.
-    - YourAnimation: For casual trips around town.
-    - Hybrid: For general-purpose transportation.
+    - Stripes: Sliding stripes as seen in Periscope app.
+    - Bars: Bars going up and down like a wave.
+    - CustomLayer: Your layer to be inserted above navigation bar's background.
 */
 enum BusyAnimationType {
     case Stripes, Bars, CustomLayer(CALayer)
@@ -25,19 +24,31 @@ enum BusyAnimationType {
 */
 class BusyNavigationBarOptions {
     /// Color of the shapes
-    var color = UIColor.whiteColor()
+    var color = UIColor.grayColor()
 
-    ///
+    /// Alpha of the animation layer. Remember that there is also an additional (constant) gradient mask over the animation layer.
     var alpha: CGFloat = 0.5
 
-    ///
+    /// Animation type
     var animationType: BusyAnimationType = .Stripes
+
+    /// Width of the bar
+    var barWidth: CGFloat = 20
+
+    /// Gap between bars
+    var gapWidth: CGFloat = 30
+
+    /// Speed of the animation
+    var speed: Float = 1
 
     init() {}
     
-    init(color: UIColor, alpha: CGFloat, animationType: BusyAnimationType) {
+    init(color: UIColor, alpha: CGFloat, animationType: BusyAnimationType, barWidth: CGFloat, gapWidth: CGFloat, speed: Float) {
         self.color = color
         self.alpha = alpha
         self.animationType = animationType
+        self.barWidth = barWidth
+        self.gapWidth = gapWidth
+        self.speed = speed
     }
 }
