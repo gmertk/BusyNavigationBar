@@ -98,8 +98,6 @@ extension UINavigationBar {
             animationLayer = AnimationLayerCreator.stripeAnimationLayer(bounds)
         case .Bars:
             animationLayer = AnimationLayerCreator.barAnimation(bounds)
-        case .Waves:
-            animationLayer = AnimationLayerCreator.waveAnimation(bounds)
         case .CustomLayer(let yourLayer):
             animationLayer = yourLayer
         }

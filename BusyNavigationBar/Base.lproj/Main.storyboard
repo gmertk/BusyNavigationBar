@@ -17,11 +17,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CxO-cm-xCd">
-                                <rect key="frame" x="153" y="80" width="295" height="29"/>
+                                <rect key="frame" x="190" y="80" width="221" height="29"/>
                                 <segments>
                                     <segment title="Stripes"/>
                                     <segment title="Bars"/>
-                                    <segment title="Waves"/>
                                     <segment title="Swift Bird"/>
                                 </segments>
                             </segmentedControl>

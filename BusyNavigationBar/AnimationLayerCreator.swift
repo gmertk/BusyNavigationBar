@@ -87,43 +87,4 @@ struct AnimationLayerCreator {
         return replicator
     }
 
-    static func waveAnimation(bounds: CGRect) -> CALayer {
-        var pathLow: UIBezierPath {
-            let path = UIBezierPath()
-            path.moveToPoint(CGPointMake(0, 20))
-            path.addCurveToPoint(CGPointMake(176.63, 25.55), controlPoint1: CGPointMake(3.37, 20.55), controlPoint2: CGPointMake(50.5, 37.55))
-            path.addCurveToPoint(CGPointMake(375, 19.55), controlPoint1: CGPointMake(302.76, 13.55), controlPoint2: CGPointMake(377.5, 19.55))
-            path.addLineToPoint(CGPoint(x: 375, y: 44))
-            path.addLineToPoint(CGPoint(x: 0, y: 44))
-
-            path.closePath()
-            return path
-        }
-
-        var pathHigh: UIBezierPath {
-            var path = UIBezierPath()
-            path.moveToPoint(CGPointMake(0, 15))
-            path.addCurveToPoint(CGPointMake(173.63, 15), controlPoint1: CGPointMake(3.37, 15.5), controlPoint2: CGPointMake(43.54, -0.5))
-            path.addCurveToPoint(CGPointMake(375, 10), controlPoint1: CGPointMake(303.72, 29.5), controlPoint2: CGPointMake(374.5, 8.5))
-            path.addLineToPoint(CGPoint(x: 375, y: 44))
-            path.addLineToPoint(CGPoint(x: 0, y: 44))
-            path.closePath()
-            return path
-        }
-
-        let layer = CAShapeLayer()
-        layer.fillColor = UIColor.blueColor().CGColor
-        layer.bounds = bounds
-
-        let animation = CABasicAnimation(keyPath: "path")
-        animation.fromValue = pathLow.CGPath
-        animation.toValue = pathHigh.CGPath
-        animation.beginTime = 0.0
-        animation.duration = 0.5
-        animation.autoreverses = true
-        animation.repeatCount = Float.infinity
-
-        layer.addAnimation(animation, forKey: nil)
-        return layer
-    }
 }

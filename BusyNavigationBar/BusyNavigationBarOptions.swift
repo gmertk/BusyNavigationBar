@@ -17,7 +17,7 @@ import UIKit
     - Hybrid: For general-purpose transportation.
 */
 enum BusyAnimationType {
-    case Stripes, Bars, Waves, CustomLayer(CALayer)
+    case Stripes, Bars, CustomLayer(CALayer)
 }
 
 /**

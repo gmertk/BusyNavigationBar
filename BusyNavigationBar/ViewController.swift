@@ -33,8 +33,6 @@ class ViewController: UIViewController {
         case 1:
             options.animationType = .Bars
         case 2:
-            options.animationType = .Waves
-        case 3:
             options.animationType = .CustomLayer(CALayer())
         default:
             println("stripes")
