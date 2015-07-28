@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>BCE9D988-7511-4B91-AD5B-8000BCE4A3E5</string>
+	<key>IDESourceControlProjectName</key>
+	<string>BusyNavigationBar</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C92BBB677CCB65EB413A595F311D34AC9C02B963</key>
+		<string>https://github.com/gmertk/BusyNavigationBar.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>BusyNavigationBar.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C92BBB677CCB65EB413A595F311D34AC9C02B963</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/gmertk/BusyNavigationBar.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C92BBB677CCB65EB413A595F311D34AC9C02B963</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C92BBB677CCB65EB413A595F311D34AC9C02B963</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BusyNavigationBar</string>
+		</dict>
+	</array>
+</dict>
+</plist>
