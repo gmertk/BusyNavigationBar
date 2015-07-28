@@ -41,14 +41,18 @@ class BusyNavigationBarOptions {
     /// Speed of the animation
     var speed: Float = 1
 
+    /// Flag for enabling the transparent masking layer over the animation layer.
+    var transparentMaskEnabled = true
+
     init() {}
     
-    init(color: UIColor, alpha: CGFloat, animationType: BusyAnimationType, barWidth: CGFloat, gapWidth: CGFloat, speed: Float) {
+    init(color: UIColor, alpha: CGFloat, animationType: BusyAnimationType, barWidth: CGFloat, gapWidth: CGFloat, speed: Float, transparentMaskEnabled: Bool) {
         self.color = color
         self.alpha = alpha
         self.animationType = animationType
         self.barWidth = barWidth
         self.gapWidth = gapWidth
         self.speed = speed
+        self.transparentMaskEnabled = transparentMaskEnabled
     }
 }

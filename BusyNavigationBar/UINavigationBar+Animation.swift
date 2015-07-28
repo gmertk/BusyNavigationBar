@@ -65,7 +65,10 @@ extension UINavigationBar {
         var animationLayer = pickAnimationLayer()
         animationLayer.masksToBounds = true
         animationLayer.position = busy_loadingView!.center
-        animationLayer.mask = maskLayer()
+
+        if busy_options.transparentMaskEnabled {
+            animationLayer.mask = maskLayer()
+        }
 
         busy_loadingView!.layer.addSublayer(animationLayer)
     }
