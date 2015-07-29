@@ -16,7 +16,7 @@ import UIKit
     - CustomLayer: Your layer to be inserted above navigation bar's background.
 */
 enum BusyAnimationType {
-    case Stripes, Bars, CustomLayer(CALayer)
+    case Stripes, Bars, CustomLayer(() -> CALayer)
 }
 
 /**

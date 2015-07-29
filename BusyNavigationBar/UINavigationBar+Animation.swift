@@ -89,9 +89,7 @@ extension UINavigationBar {
         busy_loadingView!.alpha = 0.0
         busy_loadingView!.layer.masksToBounds = true
 
-        //        printSubviews()
         insertSubview(busy_loadingView!, atIndex: 1)
-        //        printSubviews()
     }
 
     private func pickAnimationLayer() -> CALayer {
@@ -102,8 +100,8 @@ extension UINavigationBar {
             animationLayer = AnimationLayerCreator.stripeAnimationLayer(bounds, options: busy_options)
         case .Bars:
             animationLayer = AnimationLayerCreator.barAnimation(bounds, options: busy_options)
-        case .CustomLayer(let yourLayer):
-            animationLayer = yourLayer
+        case .CustomLayer(let layerCreator):
+            animationLayer = layerCreator()
         }
 
         return animationLayer
@@ -115,14 +113,4 @@ extension UINavigationBar {
         alphaLayer.colors = [UIColor(red: 0, green: 0, blue: 0, alpha: 0).CGColor, UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).CGColor]
         return alphaLayer
     }
-}
-
-private func printSubviews(subviews: [AnyObject]) {
-    print("\n [Printing subviews starts] ")
-    for view in subviews {
-        print("\n\n")
-        print(view)
-    }
-    print("\n")
-    print("\n [Printing subviews ended] \n\n")
 }

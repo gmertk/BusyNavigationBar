@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--h4ckademy-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="BusyNavigationBar" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,16 +23,10 @@
                                     <segment title="Bars"/>
                                     <segment title="Swift Bird"/>
                                 </segments>
-                            </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldv-OD-F9f">
-                                <rect key="frame" x="285" y="124" width="31" height="30"/>
-                                <state key="normal" title="start">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
                                 <connections>
-                                    <action selector="showDidTap:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="YXa-RP-uE3"/>
+                                    <action selector="segmentChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="Yf2-ed-VR5"/>
                                 </connections>
-                            </button>
+                            </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J2S-m2-uS0">
                                 <rect key="frame" x="285" y="170" width="31" height="30"/>
                                 <state key="normal" title="stop">
@@ -42,18 +36,27 @@
                                     <action selector="stopDidTap:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="XBM-Xa-Emb"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sfh-ZA-sFx">
+                                <rect key="frame" x="285" y="132" width="31" height="30"/>
+                                <state key="normal" title="start">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startDidTap:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="WuB-8h-Fgv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="J2S-m2-uS0" firstAttribute="centerX" secondItem="ldv-OD-F9f" secondAttribute="centerX" id="AZy-Fp-zoP"/>
-                            <constraint firstItem="ldv-OD-F9f" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Tf7-zc-IEc"/>
-                            <constraint firstItem="CxO-cm-xCd" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="16" id="r7Y-Xq-89c"/>
-                            <constraint firstItem="ldv-OD-F9f" firstAttribute="top" secondItem="CxO-cm-xCd" secondAttribute="bottom" constant="16" id="tcU-qz-CzR"/>
-                            <constraint firstItem="CxO-cm-xCd" firstAttribute="centerX" secondItem="ldv-OD-F9f" secondAttribute="centerX" id="vAk-Q0-FUk"/>
-                            <constraint firstItem="J2S-m2-uS0" firstAttribute="top" secondItem="ldv-OD-F9f" secondAttribute="bottom" constant="16" id="xoR-TV-JL0"/>
+                            <constraint firstItem="CxO-cm-xCd" firstAttribute="centerX" secondItem="Sfh-ZA-sFx" secondAttribute="centerX" id="6bL-aQ-ShG"/>
+                            <constraint firstItem="Sfh-ZA-sFx" firstAttribute="top" secondItem="CxO-cm-xCd" secondAttribute="bottom" constant="24" id="G1b-gX-CAQ"/>
+                            <constraint firstItem="CxO-cm-xCd" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="16" id="IxK-Qx-pNd"/>
+                            <constraint firstItem="CxO-cm-xCd" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="N6x-mA-0J9"/>
+                            <constraint firstItem="J2S-m2-uS0" firstAttribute="top" secondItem="Sfh-ZA-sFx" secondAttribute="bottom" constant="8" symbolic="YES" id="fCg-Bj-t3q"/>
+                            <constraint firstItem="Sfh-ZA-sFx" firstAttribute="centerX" secondItem="J2S-m2-uS0" secondAttribute="centerX" id="oYr-mE-gv3"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="8Iv-Tr-DFL"/>
+                    <navigationItem key="navigationItem" title="h4ckademy" id="8Iv-Tr-DFL"/>
                     <connections>
                         <outlet property="animationType" destination="CxO-cm-xCd" id="Ovv-tH-YRI"/>
                     </connections>
