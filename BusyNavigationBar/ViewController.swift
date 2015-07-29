@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func segmentChanged(sender: AnyObject) {
-        var options = BusyNavigationBarOptions()
+        self.options = BusyNavigationBarOptions()
 
         switch animationType.selectedSegmentIndex {
         case 0:
