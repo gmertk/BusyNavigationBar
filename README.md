@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/cocoapods/l/BusyNavigationBar.svg?style=flat)](http://cocoapods.org/pods/BusyNavigationBar)
 [![Platform](https://img.shields.io/cocoapods/p/BusyNavigationBar.svg?style=flat)](http://cocoapods.org/pods/BusyNavigationBar)
 
-A navigation bar extension to show loading effects above navigation bar's background.
+A UINavigationBar extension to show loading effects above navigation bar's background.
 
 ## Screenshot
 
@@ -19,15 +19,11 @@ use_frameworks!
 pod "BusyNavigationBar"
 ```
 	
-## Setup
+After installation is done, you can use the new methods of your navigation bar; `start(_ options: BusyNavigationBarOptions)` and `stop()`.
+
+## Properties
 ```swift
 var options = BusyNavigationBarOptions()
-
-/// Color of the shapes. Defaults to gray.
-options.color = UIColor.grayColor()
-
-/// Alpha of the animation layer. Remember that there is also an additional (constant) gradient mask over the animation layer. Defaults to 0.5.
-options.alpha = 0.5
 
 /**
     Animation type
@@ -37,6 +33,12 @@ options.alpha = 0.5
     - CustomLayer(() -> CALayer): Your layer to be inserted in navigation bar. In this case, properties other than `transparentMaskEnabled` and `alpha` will not be used. 
 */
 options.animationType = .Stripes
+
+/// Color of the shapes. Defaults to gray.
+options.color = UIColor.grayColor()
+
+/// Alpha of the animation layer. Remember that there is also an additional (constant) gradient mask over the animation layer. Defaults to 0.5.
+options.alpha = 0.5
 
 /// Width of the bar. Defaults to 20.
 options.barWidth = 20
@@ -51,10 +53,12 @@ options.speed = 1
 options.transparentMaskEnabled = true
 
 
-```
+// Start animation
+self.navigationController?.navigationBar.start(options)
 
-## Properties
-Soon
+// Stop animation
+self.navigationController?.navigationBar.stop()
+```
 
 ## Author
 
