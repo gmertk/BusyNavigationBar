@@ -24,6 +24,12 @@ it, simply add the following lines to your Podfile:
 use_frameworks!
 pod "BusyNavigationBar"
 ```
+
+Or add the following lines to your Cartfile:
+
+```bash
+github "gmertk/BusyNavigationBar" "master"
+```
 	
 After installation is done, you can use the new methods of your navigation bar; `start(_ options: BusyNavigationBarOptions)` and `stop()`.
 

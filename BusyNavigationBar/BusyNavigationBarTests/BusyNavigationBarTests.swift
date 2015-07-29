@@ -2,8 +2,8 @@
 //  BusyNavigationBarTests.swift
 //  BusyNavigationBarTests
 //
-//  Created by Gunay Mert Karadogan on 27/7/15.
-//
+//  Created by Gunay Mert Karadogan on 29/7/15.
+//  Copyright (c) 2015 Gunay Mert Karadogan. All rights reserved.
 //
 
 import UIKit

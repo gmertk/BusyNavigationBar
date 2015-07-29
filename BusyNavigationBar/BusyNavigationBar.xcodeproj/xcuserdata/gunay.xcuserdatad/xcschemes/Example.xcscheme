@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3117C23A1B66230300982B9E"
-               BuildableName = "BusyNavigationBar.app"
-               BlueprintName = "BusyNavigationBar"
+               BlueprintIdentifier = "313D93C11B697D6B00106E78"
+               BuildableName = "Example.app"
+               BlueprintName = "Example"
                ReferencedContainer = "container:BusyNavigationBar.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,9 +28,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3117C24F1B66230300982B9E"
-               BuildableName = "BusyNavigationBarTests.xctest"
-               BlueprintName = "BusyNavigationBarTests"
+               BlueprintIdentifier = "313D93D51B697D6B00106E78"
+               BuildableName = "ExampleTests.xctest"
+               BlueprintName = "ExampleTests"
                ReferencedContainer = "container:BusyNavigationBar.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,9 +46,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3117C24F1B66230300982B9E"
-               BuildableName = "BusyNavigationBarTests.xctest"
-               BlueprintName = "BusyNavigationBarTests"
+               BlueprintIdentifier = "313D93D51B697D6B00106E78"
+               BuildableName = "ExampleTests.xctest"
+               BlueprintName = "ExampleTests"
                ReferencedContainer = "container:BusyNavigationBar.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -56,9 +56,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3117C23A1B66230300982B9E"
-            BuildableName = "BusyNavigationBar.app"
-            BlueprintName = "BusyNavigationBar"
+            BlueprintIdentifier = "313D93C11B697D6B00106E78"
+            BuildableName = "Example.app"
+            BlueprintName = "Example"
             ReferencedContainer = "container:BusyNavigationBar.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -76,9 +76,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3117C23A1B66230300982B9E"
-            BuildableName = "BusyNavigationBar.app"
-            BlueprintName = "BusyNavigationBar"
+            BlueprintIdentifier = "313D93C11B697D6B00106E78"
+            BuildableName = "Example.app"
+            BlueprintName = "Example"
             ReferencedContainer = "container:BusyNavigationBar.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -95,9 +95,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3117C23A1B66230300982B9E"
-            BuildableName = "BusyNavigationBar.app"
-            BlueprintName = "BusyNavigationBar"
+            BlueprintIdentifier = "313D93C11B697D6B00106E78"
+            BuildableName = "Example.app"
+            BlueprintName = "Example"
             ReferencedContainer = "container:BusyNavigationBar.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

@@ -8,6 +8,7 @@
 
 
 import UIKit
+import BusyNavigationBar
 
 class ViewController: UIViewController {
 

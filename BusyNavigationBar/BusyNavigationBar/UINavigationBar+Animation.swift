@@ -49,7 +49,7 @@ extension UINavigationBar {
         }
     }
 
-    func start(_ options: BusyNavigationBarOptions? = nil) {
+    public func start(_ options: BusyNavigationBarOptions? = nil) {
         if let loadingView = self.busy_loadingView {
             loadingView.removeFromSuperview()
         }
@@ -73,7 +73,7 @@ extension UINavigationBar {
         busy_loadingView!.layer.addSublayer(animationLayer)
     }
 
-    func stop(){
+    public func stop(){
         if let loadingView = self.busy_loadingView {
             UIView.animateWithDuration(alphaAnimationDurationOfLoadingView, animations: { () -> Void in
                 loadingView.alpha = 0.0
@@ -83,7 +83,7 @@ extension UINavigationBar {
         }
     }
 
-    private func insertLoadingView() {
+    func insertLoadingView() {
         busy_loadingView = UIView(frame: bounds)
         busy_loadingView!.center.x = bounds.size.width / 2
         busy_loadingView!.alpha = 0.0
@@ -92,7 +92,7 @@ extension UINavigationBar {
         insertSubview(busy_loadingView!, atIndex: 1)
     }
 
-    private func pickAnimationLayer() -> CALayer {
+    func pickAnimationLayer() -> CALayer {
         var animationLayer: CALayer
 
         switch busy_options.animationType {
@@ -107,7 +107,7 @@ extension UINavigationBar {
         return animationLayer
     }
 
-    private func maskLayer() -> CALayer {
+    func maskLayer() -> CALayer {
         var alphaLayer = CAGradientLayer()
         alphaLayer.frame = bounds
         alphaLayer.colors = [UIColor(red: 0, green: 0, blue: 0, alpha: 0).CGColor, UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).CGColor]

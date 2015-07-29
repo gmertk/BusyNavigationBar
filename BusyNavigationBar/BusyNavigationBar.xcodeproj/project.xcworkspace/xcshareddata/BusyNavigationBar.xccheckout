@@ -5,7 +5,7 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>BCE9D988-7511-4B91-AD5B-8000BCE4A3E5</string>
+	<string>DC7AC2EE-53A2-413C-88A1-5BA9CB204EE0</string>
 	<key>IDESourceControlProjectName</key>
 	<string>BusyNavigationBar</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -14,11 +14,11 @@
 		<string>https://github.com/gmertk/BusyNavigationBar.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>BusyNavigationBar.xcodeproj</string>
+	<string>BusyNavigationBar/BusyNavigationBar.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>C92BBB677CCB65EB413A595F311D34AC9C02B963</key>
-		<string>../..</string>
+		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/gmertk/BusyNavigationBar.git</string>
