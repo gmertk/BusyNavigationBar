@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "BusyNavigationBar"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "A UINavigationBar extension to show loading effects as in Periscope app"
 
   s.description  = <<-DESC
