@@ -75,3 +75,6 @@ Günay Mert Karadoğan, mertkaradogan@gmail.com
 BusyNavigationBar is available under the MIT license. See the LICENSE file for more info.
 
 
+## More 
+
+There is [a nice tutorial](http://www.thinkandbuild.it/implementing-the-periscope-app-pull-to-refresh/) about Periscope's pull-to-refresh control by @bitwaker.
