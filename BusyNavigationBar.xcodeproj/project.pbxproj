@@ -38,10 +38,10 @@
 		3117C2501B66230300982B9E /* BusyNavigationBarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BusyNavigationBarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3117C2551B66230300982B9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3117C2561B66230300982B9E /* BusyNavigationBarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusyNavigationBarTests.swift; sourceTree = "<group>"; };
-		3117C2601B66231300982B9E /* UINavigationBar+Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Animation.swift"; sourceTree = "<group>"; };
+		3117C2601B66231300982B9E /* UINavigationBar+Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UINavigationBar+Animation.swift"; path = "BusyNavigationBar/UINavigationBar+Animation.swift"; sourceTree = "<group>"; };
 		3117C2621B66234300982B9E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3117C2641B66371B00982B9E /* BusyNavigationBarOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusyNavigationBarOptions.swift; sourceTree = "<group>"; };
-		3117C2661B66373B00982B9E /* AnimationLayerCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationLayerCreator.swift; sourceTree = "<group>"; };
+		3117C2641B66371B00982B9E /* BusyNavigationBarOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BusyNavigationBarOptions.swift; path = BusyNavigationBar/BusyNavigationBarOptions.swift; sourceTree = "<group>"; };
+		3117C2661B66373B00982B9E /* AnimationLayerCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimationLayerCreator.swift; path = BusyNavigationBar/AnimationLayerCreator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,9 +83,7 @@
 		3117C23D1B66230300982B9E /* BusyNavigationBar */ = {
 			isa = PBXGroup;
 			children = (
-				3117C2601B66231300982B9E /* UINavigationBar+Animation.swift */,
-				3117C2641B66371B00982B9E /* BusyNavigationBarOptions.swift */,
-				3117C2661B66373B00982B9E /* AnimationLayerCreator.swift */,
+				313032811B693C1B00CEF854 /* Source */,
 				3117C2401B66230300982B9E /* AppDelegate.swift */,
 				3117C2421B66230300982B9E /* ViewController.swift */,
 				3117C2621B66234300982B9E /* Main.storyboard */,
@@ -119,6 +117,16 @@
 				3117C2551B66230300982B9E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		313032811B693C1B00CEF854 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				3117C2601B66231300982B9E /* UINavigationBar+Animation.swift */,
+				3117C2641B66371B00982B9E /* BusyNavigationBarOptions.swift */,
+				3117C2661B66373B00982B9E /* AnimationLayerCreator.swift */,
+			);
+			name = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
