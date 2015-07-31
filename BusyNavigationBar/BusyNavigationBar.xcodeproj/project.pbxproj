@@ -18,6 +18,9 @@
 		313D93CC1B697D6B00106E78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 313D93CA1B697D6B00106E78 /* Main.storyboard */; };
 		313D93CE1B697D6B00106E78 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 313D93CD1B697D6B00106E78 /* Images.xcassets */; };
 		313D93D11B697D6B00106E78 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 313D93CF1B697D6B00106E78 /* LaunchScreen.xib */; };
+		31DE6CBA1B6B8DC100C7CD5B /* AnimationLayerCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D93B81B697D2D00106E78 /* AnimationLayerCreator.swift */; };
+		31DE6CBB1B6B8DC100C7CD5B /* BusyNavigationBarOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D93B91B697D2D00106E78 /* BusyNavigationBarOptions.swift */; };
+		31DE6CBC1B6B8DC100C7CD5B /* UINavigationBar+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D93BA1B697D2D00106E78 /* UINavigationBar+Animation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -226,6 +229,7 @@
 		313D93931B697D0A00106E78 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Gunay Mert Karadogan";
 				TargetAttributes = {
@@ -310,6 +314,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31DE6CBC1B6B8DC100C7CD5B /* UINavigationBar+Animation.swift in Sources */,
+				31DE6CBA1B6B8DC100C7CD5B /* AnimationLayerCreator.swift in Sources */,
+				31DE6CBB1B6B8DC100C7CD5B /* BusyNavigationBarOptions.swift in Sources */,
 				313D93C91B697D6B00106E78 /* ViewController.swift in Sources */,
 				313D93C71B697D6B00106E78 /* AppDelegate.swift in Sources */,
 			);
@@ -540,6 +547,7 @@
 				313D93B41B697D0A00106E78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		313D93B51B697D0A00106E78 /* Build configuration list for PBXNativeTarget "BusyNavigationBarTests" */ = {
 			isa = XCConfigurationList;
@@ -548,6 +556,7 @@
 				313D93B71B697D0A00106E78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		313D93DE1B697D6B00106E78 /* Build configuration list for PBXNativeTarget "Example" */ = {
 			isa = XCConfigurationList;
@@ -556,6 +565,7 @@
 				313D93E01B697D6B00106E78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
