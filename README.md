@@ -7,12 +7,15 @@ A UINavigationBar extension to show loading effects above navigation bar's backg
 
 ## Screenshot
 
+### Stripes
 ![gray_stripe.gif](https://raw.githubusercontent.com/gmertk/BusyNavigationBar/master/Screenshots/gray_stripe.gif)
-![blue_stripe.gif](https://raw.githubusercontent.com/gmertk/BusyNavigationBar/master/Screenshots/blue_stripe.gif)
+![blue_stripe2.gif](https://raw.githubusercontent.com/gmertk/BusyNavigationBar/master/Screenshots/blue_stripe2.gif)
 
+### Bars
 ![gray_bar.gif](https://raw.githubusercontent.com/gmertk/BusyNavigationBar/master/Screenshots/gray_bar.gif)
 ![green_bar.gif](https://raw.githubusercontent.com/gmertk/BusyNavigationBar/master/Screenshots/green_bar.gif)
 
+### Your custom layer
 ![gray_bird.gif](https://raw.githubusercontent.com/gmertk/BusyNavigationBar/master/Screenshots/gray_bird.gif)
 
 ## Usage
