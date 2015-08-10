@@ -7,7 +7,7 @@
         <!--h4ckademy-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="BusyNavigationBar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -56,7 +56,13 @@
                             <constraint firstItem="Sfh-ZA-sFx" firstAttribute="centerX" secondItem="J2S-m2-uS0" secondAttribute="centerX" id="oYr-mE-gv3"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="h4ckademy" id="8Iv-Tr-DFL"/>
+                    <navigationItem key="navigationItem" title="h4ckademy" id="8Iv-Tr-DFL">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="lTZ-HG-Cje">
+                            <connections>
+                                <segue destination="CbJ-Id-Gve" kind="show" id="kx1-uN-kes"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="animationType" destination="CxO-cm-xCd" id="Ovv-tH-YRI"/>
                     </connections>
@@ -64,6 +70,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1152" y="387"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="7Ux-nJ-abC">
+            <objects>
+                <viewController id="CbJ-Id-Gve" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oDj-kq-BZz"/>
+                        <viewControllerLayoutGuide type="bottom" id="Y6o-su-cqc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KDW-XB-uKw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2IZ-3q-D7n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1896" y="378"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cQq-P4-ofR">

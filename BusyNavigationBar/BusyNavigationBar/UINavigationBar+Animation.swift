@@ -49,6 +49,21 @@ extension UINavigationBar {
         }
     }
 
+    public override func didAddSubview(subview: UIView) {
+        println("subview added")
+        if let superView = busy_loadingView?.superview {
+            if (subviews[1] as? UIView) != busy_loadingView {
+                busy_loadingView?.removeFromSuperview()
+                self.busy_loadingView = nil
+
+                // Restart
+                start(self.busy_options)
+            }
+        }
+
+        println(subviews)
+    }
+
     public func start(_ options: BusyNavigationBarOptions? = nil) {
         if let loadingView = self.busy_loadingView {
             loadingView.removeFromSuperview()
@@ -58,19 +73,19 @@ extension UINavigationBar {
 
         insertLoadingView()
 
-        UIView.animateWithDuration(alphaAnimationDurationOfLoadingView, animations: { () -> Void in
-            self.busy_loadingView!.alpha = self.busy_options.alpha
-        })
+//        UIView.animateWithDuration(alphaAnimationDurationOfLoadingView, animations: { () -> Void in
+//            self.busy_loadingView!.alpha = self.busy_options.alpha
+//        })
 
-        var animationLayer = pickAnimationLayer()
-        animationLayer.masksToBounds = true
-        animationLayer.position = busy_loadingView!.center
+//        var animationLayer = pickAnimationLayer()
+//        animationLayer.masksToBounds = true
+//        animationLayer.position = busy_loadingView!.center
 
-        if busy_options.transparentMaskEnabled {
-            animationLayer.mask = maskLayer()
-        }
+//        if busy_options.transparentMaskEnabled {
+//            animationLayer.mask = maskLayer()
+//        }
 
-        busy_loadingView!.layer.addSublayer(animationLayer)
+//        busy_loadingView!.layer.addSublayer(animationLayer)
     }
 
     public func stop(){
@@ -86,9 +101,9 @@ extension UINavigationBar {
     func insertLoadingView() {
         busy_loadingView = UIView(frame: bounds)
         busy_loadingView!.center.x = bounds.size.width / 2
-        busy_loadingView!.alpha = 0.0
+        busy_loadingView!.alpha = 1.0
         busy_loadingView!.layer.masksToBounds = true
-
+        busy_loadingView?.backgroundColor = UIColor.redColor()
         insertSubview(busy_loadingView!, atIndex: 1)
     }
 
