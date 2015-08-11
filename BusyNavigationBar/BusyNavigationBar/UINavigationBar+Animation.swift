@@ -8,17 +8,17 @@
 
 import UIKit
 
-private var BusyNavigationBarLoadingViewAssociationKey: UInt8 = 0
+private var BusyNavigationBarLoadingLayerAssociationKey: UInt8 = 0
 private var BusyNavigationBarOptionsAssociationKey: UInt8 = 1
 private var alphaAnimationDurationOfLoadingView = 0.3
 
 extension UINavigationBar {
-    private var busy_loadingView: UIView? {
+    private var busy_loadingLayer: CALayer? {
         get {
-            return objc_getAssociatedObject(self, &BusyNavigationBarLoadingViewAssociationKey) as? UIView
+            return objc_getAssociatedObject(self, &BusyNavigationBarLoadingLayerAssociationKey) as? CALayer
         }
         set(newValue) {
-            objc_setAssociatedObject(self, &BusyNavigationBarLoadingViewAssociationKey, newValue, objc_AssociationPolicy(OBJC_ASSOCIATION_RETAIN))
+            objc_setAssociatedObject(self, &BusyNavigationBarLoadingLayerAssociationKey, newValue, objc_AssociationPolicy(OBJC_ASSOCIATION_RETAIN))
         }
     }
 
@@ -34,15 +34,11 @@ extension UINavigationBar {
     public override var bounds: CGRect {
         didSet {
             if oldValue != bounds {
-
-                // If busy_loadingView is in the view hierarchy
-                if let superView = busy_loadingView?.superview {
-
-                    // Remove loadingView
-                    busy_loadingView?.removeFromSuperview()
-                    self.busy_loadingView = nil
-
-                    // Restart
+                if let loadingLayer = self.busy_loadingLayer {
+                    loadingLayer.removeFromSuperlayer()
+                    
+                    self.busy_loadingLayer = nil
+                    
                     start(self.busy_options)
                 }
             }
@@ -50,46 +46,40 @@ extension UINavigationBar {
     }
 
     public func start(_ options: BusyNavigationBarOptions? = nil) {
-        if let loadingView = self.busy_loadingView {
-            loadingView.removeFromSuperview()
+        if let loadingLayer = self.busy_loadingLayer {
+            loadingLayer.removeFromSuperlayer()
         }
 
         busy_options = options ?? BusyNavigationBarOptions()
 
-        insertLoadingView()
-
-        UIView.animateWithDuration(alphaAnimationDurationOfLoadingView, animations: { () -> Void in
-            self.busy_loadingView!.alpha = self.busy_options.alpha
-        })
-
-        var animationLayer = pickAnimationLayer()
-        animationLayer.masksToBounds = true
-        animationLayer.position = busy_loadingView!.center
+        busy_loadingLayer = pickAnimationLayer()
+        busy_loadingLayer?.masksToBounds = true
+        busy_loadingLayer?.position.x = bounds.size.width / 2
+        busy_loadingLayer?.position.y = bounds.size.height / 2
 
         if busy_options.transparentMaskEnabled {
-            animationLayer.mask = maskLayer()
+            busy_loadingLayer?.mask = maskLayer()
+        }
+        
+        UIView.animateWithDuration(alphaAnimationDurationOfLoadingView, delay: 0.0, options: UIViewAnimationOptions.AllowUserInteraction, animations: { () -> Void in
+            // Looks like in CALayers instead of alpha it's called opacity
+            self.busy_loadingLayer?.opacity = Float(self.busy_options.alpha)
+        }) { (finished) -> Void in
+            // Finished..
         }
 
-        busy_loadingView!.layer.addSublayer(animationLayer)
+        // Add the busy_loadingLayer directly as sublayer
+        self.layer.addSublayer(busy_loadingLayer)
     }
 
     public func stop(){
-        if let loadingView = self.busy_loadingView {
-            UIView.animateWithDuration(alphaAnimationDurationOfLoadingView, animations: { () -> Void in
-                loadingView.alpha = 0.0
-            }) { (Completed) -> Void in
-                loadingView.removeFromSuperview()
+        if let loadingView = self.busy_loadingLayer {
+            UIView.animateWithDuration(alphaAnimationDurationOfLoadingView, delay: 0.0, options: UIViewAnimationOptions.AllowUserInteraction, animations: { () -> Void in
+                self.busy_loadingLayer?.opacity = 0.0
+            }) { (finished) -> Void in
+                // Finished..
             }
         }
-    }
-
-    func insertLoadingView() {
-        busy_loadingView = UIView(frame: bounds)
-        busy_loadingView!.center.x = bounds.size.width / 2
-        busy_loadingView!.alpha = 0.0
-        busy_loadingView!.layer.masksToBounds = true
-
-        insertSubview(busy_loadingView!, atIndex: 1)
     }
 
     func pickAnimationLayer() -> CALayer {
