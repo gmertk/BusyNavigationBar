@@ -31,6 +31,8 @@ class ViewController: UIViewController {
         switch animationType.selectedSegmentIndex {
         case 0:
             options.animationType = .Stripes
+            options.transparentMaskEnabled = false
+            options.alpha = 1.0
         case 1:
             options.animationType = .Bars
         case 2:

@@ -31,23 +31,23 @@ extension UINavigationBar {
         }
     }
 
-    public override var bounds: CGRect {
-        didSet {
-            if oldValue != bounds {
-
-                // If busy_loadingView is in the view hierarchy
-                if let superView = busy_loadingView?.superview {
-
-                    // Remove loadingView
-                    busy_loadingView?.removeFromSuperview()
-                    self.busy_loadingView = nil
-
-                    // Restart
-                    start(self.busy_options)
-                }
-            }
-        }
-    }
+//    public override var bounds: CGRect {
+//        didSet {
+//            if oldValue != bounds {
+//
+//                // If busy_loadingView is in the view hierarchy
+//                if let superView = busy_loadingView?.superview {
+//
+//                    // Remove loadingView
+//                    busy_loadingView?.removeFromSuperview()
+//                    self.busy_loadingView = nil
+//
+//                    // Restart
+//                    start(self.busy_options)
+//                }
+//            }
+//        }
+//    }
 
     public func start(_ options: BusyNavigationBarOptions? = nil) {
         if let loadingView = self.busy_loadingView {
@@ -89,6 +89,7 @@ extension UINavigationBar {
         busy_loadingView!.alpha = 0.0
         busy_loadingView!.layer.masksToBounds = true
         busy_loadingView!.userInteractionEnabled = false
+        busy_loadingView!.autoresizingMask = .FlexibleWidth | .FlexibleHeight
 
         insertSubview(busy_loadingView!, atIndex: 1)
     }
