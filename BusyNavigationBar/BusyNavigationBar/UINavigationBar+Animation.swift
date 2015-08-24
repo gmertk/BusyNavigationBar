@@ -18,7 +18,7 @@ extension UINavigationBar {
             return objc_getAssociatedObject(self, &BusyNavigationBarLoadingViewAssociationKey) as? UIView
         }
         set(newValue) {
-            objc_setAssociatedObject(self, &BusyNavigationBarLoadingViewAssociationKey, newValue, objc_AssociationPolicy(OBJC_ASSOCIATION_RETAIN))
+            objc_setAssociatedObject(self, &BusyNavigationBarLoadingViewAssociationKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
         }
     }
 
@@ -27,7 +27,7 @@ extension UINavigationBar {
             return objc_getAssociatedObject(self, &BusyNavigationBarOptionsAssociationKey) as! BusyNavigationBarOptions
         }
         set(newValue) {
-            objc_setAssociatedObject(self, &BusyNavigationBarOptionsAssociationKey, newValue, objc_AssociationPolicy(OBJC_ASSOCIATION_RETAIN))
+            objc_setAssociatedObject(self, &BusyNavigationBarOptionsAssociationKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
         }
     }
 
@@ -36,7 +36,7 @@ extension UINavigationBar {
             if oldValue != bounds {
 
                 // If busy_loadingView is in the view hierarchy
-                if let superView = busy_loadingView?.superview {
+                if let _ = busy_loadingView?.superview {
 
                     // Remove loadingView
                     busy_loadingView?.removeFromSuperview()
@@ -49,7 +49,7 @@ extension UINavigationBar {
         }
     }
 
-    public func start(_ options: BusyNavigationBarOptions? = nil) {
+    public func start(options: BusyNavigationBarOptions? = nil) {
         if let loadingView = self.busy_loadingView {
             loadingView.removeFromSuperview()
         }
@@ -62,7 +62,7 @@ extension UINavigationBar {
             self.busy_loadingView!.alpha = self.busy_options.alpha
         })
 
-        var animationLayer = pickAnimationLayer()
+        let animationLayer = pickAnimationLayer()
         animationLayer.masksToBounds = true
         animationLayer.position = busy_loadingView!.center
 
@@ -108,7 +108,7 @@ extension UINavigationBar {
     }
 
     func maskLayer() -> CALayer {
-        var alphaLayer = CAGradientLayer()
+        let alphaLayer = CAGradientLayer()
         alphaLayer.frame = bounds
         alphaLayer.colors = [UIColor(red: 0, green: 0, blue: 0, alpha: 0).CGColor, UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).CGColor]
         return alphaLayer
