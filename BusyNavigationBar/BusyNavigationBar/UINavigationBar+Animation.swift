@@ -88,7 +88,7 @@ extension UINavigationBar {
         busy_loadingView!.center.x = bounds.size.width / 2
         busy_loadingView!.alpha = 0.0
         busy_loadingView!.layer.masksToBounds = true
-
+        busy_loadingView!.userInteractionEnabled = false
         insertSubview(busy_loadingView!, atIndex: 1)
     }
 
