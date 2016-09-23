@@ -16,33 +16,33 @@ import UIKit
     - CustomLayer(() -> CALayer): Your layer to be inserted above navigation bar's background. In this case, properties other than transparentMaskEnabled and alpha will not be used. 
 */
 public enum BusyAnimationType {
-    case Stripes, Bars, CustomLayer(() -> CALayer)
+    case stripes, bars, customLayer(() -> CALayer)
 }
 
 /**
     Options to customize the behaviour of BusyNavigationBar
 */
-public class BusyNavigationBarOptions {
+open class BusyNavigationBarOptions {
     /// Animation type. Defaults to .Stripes.
-    public var animationType: BusyAnimationType = .Stripes
+    open var animationType: BusyAnimationType = .stripes
 
     /// Color of the shapes. Defaults to gray.
-    public var color = UIColor.grayColor()
+    open var color = UIColor.gray
 
     /// Alpha of the animation layer. Remember that there is also an additional (constant) gradient mask over the animation layer. Defaults to 0.5.
-    public var alpha: CGFloat = 0.5
+    open var alpha: CGFloat = 0.5
 
     /// Width of the bar. Defaults to 20.
-    public var barWidth: CGFloat = 20
+    open var barWidth: CGFloat = 20
 
     /// Gap between bars. Defaults to 30.
-    public var gapWidth: CGFloat = 30
+    open var gapWidth: CGFloat = 30
 
     /// Speed of the animation. 1 corresponds to 0.5 sec. Defaults to 1.
-    public var speed: Float = 1
+    open var speed: Float = 1
 
     /// Flag for enabling the transparent masking layer over the animation layer.
-    public var transparentMaskEnabled = true
+    open var transparentMaskEnabled = true
 
     public init() {}
     
