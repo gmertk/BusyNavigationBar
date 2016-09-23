@@ -12,83 +12,87 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var animationType: UISegmentedControl!
-    var options = BusyNavigationBarOptions()
+	@IBOutlet weak var animationType: UISegmentedControl!
+	var options = BusyNavigationBarOptions()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		// Do any additional setup after loading the view, typically from a nib.
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+		navigationItem.title = "BusyNavigationBar"
+	}
 
-    @IBAction func segmentChanged(sender: AnyObject) {
-        self.options = BusyNavigationBarOptions()
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		// Dispose of any resources that can be recreated.
+	}
 
-        switch animationType.selectedSegmentIndex {
-        case 0:
-            options.animationType = .Stripes
-        case 1:
-            options.animationType = .Bars
-        case 2:
-            options.animationType = .CustomLayer(birdLayer)
-            options.transparentMaskEnabled = false
-        default:
-            options.animationType = .Stripes
-        }
+	@IBAction func animationSegmentChanged(_ sender: AnyObject) {
+		self.options = BusyNavigationBarOptions()
 
-        self.navigationController?.navigationBar.start(options)
+		switch animationType.selectedSegmentIndex {
+		case 0:
+			options.animationType = .stripes
+		case 1:
+			options.animationType = .bars
+		case 2:
+			options.animationType = .customLayer(birdLayer)
+			options.transparentMaskEnabled = false
+		default:
+			options.animationType = .stripes
+		}
 
-    }
+		self.navigationController?.navigationBar.start(options)
+	}
 
-    @IBAction func startDidTap(sender: AnyObject) {
-        self.navigationController?.navigationBar.start(options)
-    }
+	@IBAction func startAnimating(_ sender: AnyObject) {
+		self.navigationController?.navigationBar.start(options)
+	}
 
-    @IBAction func stopDidTap(sender: AnyObject) {
-        self.navigationController?.navigationBar.stop()
-    }
+	@IBAction func stopAnimating(_ sender: AnyObject) {
+		self.navigationController?.navigationBar.stop()
+	}
+	
+	// A sample layer with sliding birds
+	func birdLayer() -> CALayer {
+		let bounds = self.navigationController?.navigationBar.bounds
+		let gap: CGFloat = 100
+		let numberOfBirds = Int(bounds!.width / gap)
+		let image = UIImage(named: "swift-bird")?.cgImage
 
-    // A sample layer with sliding birds
-    func birdLayer() -> CALayer {
-        let bounds = self.navigationController?.navigationBar.bounds
-        let gap: CGFloat = 100
-        let numberOfBirds = Int(bounds!.width / gap)
-        let image = UIImage(named: "swift-bird")?.CGImage
+		let container = CALayer()
+		container.bounds = bounds!
+		container.position = CGPoint(x: 0, y:0)
 
-        let container = CALayer()
-        container.bounds = bounds!
-        container.position = CGPoint(x: 0, y:0)
+		for i in 0..<numberOfBirds {
+			if let image = image {
+				let swiftBird = CALayer()
+				swiftBird.contents = image
 
-        for i in 0..<numberOfBirds {
-            let swiftBird = CALayer()
-            swiftBird.contents = image
-            swiftBird.frame = CGRect(x: 0, y: 0, width: CGImageGetWidth(image)/2, height: CGImageGetHeight(image)/2)
-            container.addSublayer(swiftBird)
+				swiftBird.frame = CGRect(x: 0, y: 0, width: image.width/2, height: image.height/2)
+				container.addSublayer(swiftBird)
 
-            let path = UIBezierPath()
-            let x = i * Int(gap) - 50
-            let y = i % 2 == 0 ? -100 : -80
-            path.moveToPoint(CGPoint(x: x, y: y))
-            path.addLineToPoint(CGPoint(x: x + 200, y: y + 200))
+				let path = UIBezierPath()
+				let x = i * Int(gap) - 50
+				let y = i % 2 == 0 ? -100 : -80
+				path.move(to: CGPoint(x: x, y: y))
+				path.addLine(to: CGPoint(x: x + 200, y: y + 200))
 
-            let animation = CAKeyframeAnimation(keyPath: "position")
-            animation.path = path.CGPath
-            animation.duration = 1
-            animation.repeatCount = Float.infinity
-            swiftBird.addAnimation(animation, forKey: nil)
-        }
+				let animation = CAKeyframeAnimation(keyPath: "position")
+				animation.path = path.cgPath
+				animation.duration = 1
+				animation.repeatCount = Float.infinity
+				swiftBird.add(animation, forKey: nil)
+			}
+		}
 
-        return container
-    }
+		return container
+	}
 
-    func changeNavigationBarColor() {
-        self.navigationController?.navigationBar.barTintColor = UIColor(red:0.24, green:0.59, blue:0.88, alpha:1)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        self.navigationController?.navigationBar.barStyle = UIBarStyle.Black;
-    }
+	func changeNavigationBarColor() {
+		self.navigationController?.navigationBar.barTintColor = UIColor(red:0.24, green:0.59, blue:0.88, alpha:1)
+		self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+		self.navigationController?.navigationBar.barStyle = UIBarStyle.black;
+	}
 }
 

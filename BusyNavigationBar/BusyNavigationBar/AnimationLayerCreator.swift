@@ -20,18 +20,18 @@ struct AnimationLayerCreator {
 
         :returns: A new layer with stripes animating
     */
-    static func stripeAnimationLayer(bounds: CGRect, options: BusyNavigationBarOptions) -> CALayer {
+    static func stripeAnimationLayer(_ bounds: CGRect, options: BusyNavigationBarOptions) -> CALayer {
         let barWidth = options.barWidth
 
         let replicator = CAReplicatorLayer()
-        replicator.backgroundColor = UIColor.clearColor().CGColor
+        replicator.backgroundColor = UIColor.clear.cgColor
         replicator.bounds = bounds
         replicator.instanceCount = 40
         replicator.instanceTransform = CATransform3DMakeTranslation(options.gapWidth + barWidth, 0, 0)
 
         let stripe = CALayer()
         stripe.bounds = CGRect(x: 0, y: 0, width: barWidth, height: bounds.height * 2)
-        stripe.backgroundColor = options.color.CGColor
+        stripe.backgroundColor = options.color.cgColor
         stripe.position = CGPoint(x: barWidth / 2, y: bounds.height / 2)
         stripe.transform = CATransform3DMakeRotation(CGFloat(M_PI / 4), 0, 0, 1)
         replicator.addSublayer(stripe)
@@ -41,7 +41,7 @@ struct AnimationLayerCreator {
         animation.duration = 0.5
         animation.speed = options.speed
         animation.repeatCount = Float.infinity
-        stripe.addAnimation(animation, forKey: nil)
+        stripe.add(animation, forKey: nil)
 
         return replicator
     }
@@ -54,12 +54,12 @@ struct AnimationLayerCreator {
 
         :returns: A new layer with bars animating
     */
-    static func barAnimation(bounds: CGRect, options: BusyNavigationBarOptions) -> CALayer {
+    static func barAnimation(_ bounds: CGRect, options: BusyNavigationBarOptions) -> CALayer {
         let barWidth: CGFloat = options.barWidth
         let barHeight = bounds.height
 
         let replicator = CAReplicatorLayer()
-        replicator.backgroundColor = UIColor.clearColor().CGColor
+        replicator.backgroundColor = UIColor.clear.cgColor
         replicator.bounds = bounds
         replicator.instanceCount = 40
         replicator.instanceDelay = 0.1
@@ -67,7 +67,7 @@ struct AnimationLayerCreator {
 
         let bar = CALayer()
         bar.bounds = CGRect(x: 0, y: 0, width: barWidth, height: barHeight)
-        bar.backgroundColor = options.color.CGColor
+        bar.backgroundColor = options.color.cgColor
         bar.cornerRadius = 1.0
         bar.position = CGPoint(x: barWidth/2, y: bounds.height)
         replicator.addSublayer(bar)
@@ -78,7 +78,7 @@ struct AnimationLayerCreator {
         animation.speed = options.speed
         animation.autoreverses = true
         animation.repeatCount = Float.infinity
-        bar.addAnimation(animation, forKey: nil)
+        bar.add(animation, forKey: nil)
 
         return replicator
     }

@@ -13,7 +13,7 @@ private var BusyNavigationBarOptionsAssociationKey: UInt8 = 1
 private var alphaAnimationDurationOfLoadingView = 0.3
 
 extension UINavigationBar {
-    private var busy_loadingView: UIView? {
+    fileprivate var busy_loadingView: UIView? {
         get {
             return objc_getAssociatedObject(self, &BusyNavigationBarLoadingViewAssociationKey) as? UIView
         }
@@ -22,7 +22,7 @@ extension UINavigationBar {
         }
     }
 
-    private var busy_options: BusyNavigationBarOptions {
+    fileprivate var busy_options: BusyNavigationBarOptions {
         get {
             return objc_getAssociatedObject(self, &BusyNavigationBarOptionsAssociationKey) as! BusyNavigationBarOptions
         }
@@ -31,7 +31,7 @@ extension UINavigationBar {
         }
     }
 
-    public override var bounds: CGRect {
+    open override var bounds: CGRect {
         didSet {
             if oldValue != bounds {
 
@@ -49,7 +49,7 @@ extension UINavigationBar {
         }
     }
 
-    public func start(options: BusyNavigationBarOptions? = nil) {
+    public func start(_ options: BusyNavigationBarOptions? = nil) {
         if let loadingView = self.busy_loadingView {
             loadingView.removeFromSuperview()
         }
@@ -58,7 +58,7 @@ extension UINavigationBar {
 
         insertLoadingView()
 
-        UIView.animateWithDuration(alphaAnimationDurationOfLoadingView, animations: { () -> Void in
+        UIView.animate(withDuration: alphaAnimationDurationOfLoadingView, animations: { () -> Void in
             self.busy_loadingView!.alpha = self.busy_options.alpha
         })
 
@@ -75,11 +75,11 @@ extension UINavigationBar {
 
     public func stop(){
         if let loadingView = self.busy_loadingView {
-            UIView.animateWithDuration(alphaAnimationDurationOfLoadingView, animations: { () -> Void in
+            UIView.animate(withDuration: alphaAnimationDurationOfLoadingView, animations: { () -> Void in
                 loadingView.alpha = 0.0
-            }) { (Completed) -> Void in
+            }, completion: { (Completed) -> Void in
                 loadingView.removeFromSuperview()
-            }
+            }) 
         }
     }
 
@@ -88,19 +88,19 @@ extension UINavigationBar {
         busy_loadingView!.center.x = bounds.size.width / 2
         busy_loadingView!.alpha = 0.0
         busy_loadingView!.layer.masksToBounds = true
-        busy_loadingView!.userInteractionEnabled = false
-        insertSubview(busy_loadingView!, atIndex: 1)
+        busy_loadingView!.isUserInteractionEnabled = false
+        insertSubview(busy_loadingView!, at: 1)
     }
 
     func pickAnimationLayer() -> CALayer {
         var animationLayer: CALayer
 
         switch busy_options.animationType {
-        case .Stripes:
+        case .stripes:
             animationLayer = AnimationLayerCreator.stripeAnimationLayer(bounds, options: busy_options)
-        case .Bars:
+        case .bars:
             animationLayer = AnimationLayerCreator.barAnimation(bounds, options: busy_options)
-        case .CustomLayer(let layerCreator):
+        case .customLayer(let layerCreator):
             animationLayer = layerCreator()
         }
 
@@ -110,7 +110,7 @@ extension UINavigationBar {
     func maskLayer() -> CALayer {
         let alphaLayer = CAGradientLayer()
         alphaLayer.frame = bounds
-        alphaLayer.colors = [UIColor(red: 0, green: 0, blue: 0, alpha: 0).CGColor, UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).CGColor]
+        alphaLayer.colors = [UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor, UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor]
         return alphaLayer
     }
 }
