@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func segmentChanged(sender: AnyObject) {
+    @IBAction func segmentChanged(_ sender: AnyObject) {
         self.options = BusyNavigationBarOptions()
 
         switch animationType.selectedSegmentIndex {
@@ -44,11 +44,11 @@ class ViewController: UIViewController {
 
     }
 
-    @IBAction func startDidTap(sender: AnyObject) {
+    @IBAction func startDidTap(_ sender: AnyObject) {
         self.navigationController?.navigationBar.start(options)
     }
 
-    @IBAction func stopDidTap(sender: AnyObject) {
+    @IBAction func stopDidTap(_ sender: AnyObject) {
         self.navigationController?.navigationBar.stop()
     }
 
