@@ -33,7 +33,7 @@ struct AnimationLayerCreator {
         stripe.bounds = CGRect(x: 0, y: 0, width: barWidth, height: bounds.height * 2)
         stripe.backgroundColor = options.color.cgColor
         stripe.position = CGPoint(x: barWidth / 2, y: bounds.height / 2)
-        stripe.transform = CATransform3DMakeRotation(CGFloat(M_PI / 4), 0, 0, 1)
+        stripe.transform = CATransform3DMakeRotation(CGFloat.pi/4, 0, 0, 1)
         replicator.addSublayer(stripe)
         
         let animation = CABasicAnimation(keyPath: "position.x")
